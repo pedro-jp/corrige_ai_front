@@ -1,0 +1,101 @@
+main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: max-content;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  border: 1px solid #00000020;
+  border-radius: 1rem;
+  background-color: #fff;
+
+  .header {
+    padding-block: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      color: dimgray;
+    }
+
+    .editor_settings {
+      button {
+        all: unset;
+        cursor: pointer;
+      }
+    }
+
+    div {
+      display: flex;
+      gap: 1rem;
+
+      button {
+        height: 40px;
+        padding-inline: 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+          border: none;
+          outline: none;
+        }
+      }
+
+      .scan {
+        position: relative;
+        background-color: var(--green);
+        display: grid;
+        place-content: center;
+
+        input {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .editor_container {
+    margin-inline: auto;
+    width: 210mm;
+    min-height: 500px;
+    border: 1px solid #00000020;
+    border-radius: 0.5rem;
+    background-color: var(--text_area);
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5rem;
+    text-align: justify;
+    white-space: pre-wrap;
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      border-color: var(--green);
+    }
+
+    p {
+      text-align: justify;
+    }
+  }
+
+  .footer {
+    padding-block: 1rem;
+    p {
+      text-align: right;
+      color: gray;
+      user-select: none;
+    }
+  }
+}
