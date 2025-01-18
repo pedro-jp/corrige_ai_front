@@ -7,12 +7,11 @@ import LoadingIcons from 'react-loading-icons';
 function App() {
   const [image, setImage] = useState<File | null>(null);
   const [, setData] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Bloqueio de requisições
   const [lineCount, setLineCount] = useState<number>(0);
   const [displayedText, setDisplayedText] = useState<string>('');
   const contentEditableRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState(16);
-  const [editableText, setEditableText] = useState<string>(''); //eslint-disable-line
   const formData = new FormData();
 
   if (image) {
@@ -43,7 +42,6 @@ function App() {
 
         const parsedText = lines.map((line: any) => line.LineText).join('\n'); //eslint-disable-line
         setData(parsedText);
-        setEditableText(parsedText);
         setLineCount(0);
         typeText(lines);
       } catch (error) {
@@ -94,19 +92,14 @@ function App() {
     if (image) {
       handleSendImage();
     }
-  }, [image]); //eslint-disable-line
+  }, [image]);
 
   useEffect(() => {
     const textContainer = contentEditableRef.current;
     if (textContainer) {
-      const handleInput = () => {
-        setEditableText(textContainer.innerHTML);
-        updateLineCount();
-      };
-
-      textContainer.addEventListener('input', handleInput);
+      textContainer.addEventListener('input', updateLineCount);
       return () => {
-        textContainer.removeEventListener('input', handleInput);
+        textContainer.removeEventListener('input', updateLineCount);
       };
     }
   }, []);
@@ -120,11 +113,11 @@ function App() {
           <h2>Editor</h2>
           <div className='editor_settings'>
             <div className='font_size'>
-              <button type='button' onClick={() => setFontSize(fontSize - 1)}>
+              <button onClick={() => setFontSize(fontSize - 1)}>
                 <strong>-</strong>
               </button>
               {fontSize}
-              <button type='button' onClick={() => setFontSize(fontSize + 1)}>
+              <button onClick={() => setFontSize(fontSize + 1)}>
                 <strong>+</strong>
               </button>
             </div>
@@ -132,18 +125,17 @@ function App() {
           <div>
             {displayedText && (
               <button
-                type='button'
                 style={{ cursor: btn }}
                 onClick={() => {
+                  setImage(null);
                   setDisplayedText('');
-                  setEditableText('');
                   setLineCount(0);
                 }}
               >
                 Limpar
               </button>
             )}
-            <button type='button' className='scan' style={{ cursor: btn }}>
+            <button className='scan' style={{ cursor: btn }}>
               <input
                 type='file'
                 accept='image/*'
@@ -166,13 +158,7 @@ function App() {
           dangerouslySetInnerHTML={{ __html: displayedText }}
         />
         <div className='footer'>
-          <p>
-            {lineCount > 0
-              ? lineCount < 2
-                ? `${lineCount} linha `
-                : `${lineCount} linhas `
-              : ''}
-          </p>
+          <p>{lineCount > 0 && `Linhas ${lineCount}`}</p>
         </div>
       </div>
     </main>
