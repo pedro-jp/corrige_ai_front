@@ -56,7 +56,7 @@ main {
     width: max-content;
     &::before {
       display: none;
-      content: 'Nossos serviços de digitalização e revisão de texto podem apresentar instabilidades em alguns momentos. Se o problema persistir, por favor, aguarde alguns minutos para obter a resposta. Caso o problema persista, por favor, entre em contato conosco. Utilizamos serviços de terceiros para fornecer essa solução, e eles podem apresentar instabilidade em alguns momentos.';
+      content: 'Nossos serviços de digitalização e revisão de texto podem apresentar instabilidades em alguns momentos. Se o problema persistir, aguarde alguns minutos para obter a resposta. Caso o problema persista, por favor, entre em contato conosco. Utilizamos serviços de terceiros para fornecer essa solução, e eles podem apresentar instabilidade em alguns momentos.';
       position: absolute;
       right: 0;
       top: 0;
