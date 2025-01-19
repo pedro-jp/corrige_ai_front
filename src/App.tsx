@@ -312,7 +312,7 @@ function App() {
       <footer>
         <div className='container'>
           <div>
-            <p>©{year} Corrige-Ia | Digitalizador e revisor de redação</p>
+            <p>©{year} Corrige-Ia digitalizador e revisor de redação</p>
             <p>
               <a target='_blank' href='https://www.linkedin.com/in/pedro-jp/'>
                 <FaLinkedin size={45} color='#0e76a8' />
