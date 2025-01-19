@@ -200,7 +200,6 @@ function App() {
       >
         <div className='header'>
           <h2>Editor</h2>
-          {windowWidth}
           <div className='editor_settings'>
             <div className='font_size'>
               <button onClick={() => setFontSize(fontSize - 1)}>
