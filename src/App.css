@@ -126,8 +126,8 @@ main {
     overflow: hidden;
 
     @media (width < 768px) {
-      min-width: 300px;
-      max-width: 100%;
+      min-width: 300px !important;
+      max-width: 100% !important;
     }
 
     &:hover,

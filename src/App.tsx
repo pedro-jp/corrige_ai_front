@@ -28,6 +28,7 @@ function App() {
   const [fontSize, setFontSize] = useState(16);
   const [sendedText, setSendedText] = useState('');
   const editorRef = useRef<HTMLDivElement>(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const formData = new FormData();
 
   if (image) {
@@ -119,6 +120,21 @@ function App() {
   };
 
   useEffect(() => {
+    // Função que atualiza a largura da janela
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Adicionar o listener no evento resize
+    window.addEventListener('resize', handleResize);
+
+    // Remover o listener ao desmontar o componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (image) {
       handleSendImage();
     }
@@ -174,12 +190,17 @@ function App() {
         style={
           contentEditableRef.current &&
           contentEditableRef.current.innerText !== ''
-            ? { minWidth: '540px', width: 'max-content', maxWidth: '1280px' }
+            ? {
+                minWidth: windowWidth > 768 ? '540' : '100%',
+                width: 'max-content',
+                maxWidth: '100%'
+              }
             : editor_width
         }
       >
         <div className='header'>
           <h2>Editor</h2>
+          {windowWidth}
           <div className='editor_settings'>
             <div className='font_size'>
               <button onClick={() => setFontSize(fontSize - 1)}>
