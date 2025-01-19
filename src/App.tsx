@@ -27,6 +27,7 @@ function App() {
   const contentEditableRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState(16);
   const [sendedText, setSendedText] = useState('');
+  const editorRef = useRef<HTMLDivElement>(null);
   const formData = new FormData();
 
   if (image) {
@@ -135,9 +136,46 @@ function App() {
 
   const btn = isLoading ? 'not-allowed' : 'pointer';
 
+  const editor_width = {
+    width: '100%',
+    maxWidth: '864px'
+  };
+
   return (
     <main>
-      <div className='container'>
+      <div className='main_header'>
+        <h1>Digitalize e tenha sua redação corrigida</h1>
+        <p>
+          Transforme seus textos manuscritos em digitais com facilidade e
+          eficiência.
+        </p>
+        <ul>
+          <li>Evite letras manuscritas para maior precisão na digitalização</li>
+          <li>
+            Mantenha entre 10-15 palavras por linha para melhor legibilidade
+          </li>
+          <li>Use parágrafos curtos para facilitar a leitura e compreensão</li>
+          <li>
+            Revise seu texto após a digitalização para corrigir possíveis erros
+          </li>
+          <li>
+            Tenha em mente que o texto digitalizado pode apresentar pequenos
+            erros
+          </li>
+          <li>Para melhor edição evite usar em celulares</li>
+        </ul>
+      </div>
+
+      <div
+        className='container'
+        ref={editorRef}
+        style={
+          contentEditableRef.current &&
+          contentEditableRef.current.innerText !== ''
+            ? { minWidth: '540px', width: 'max-content', maxWidth: '1280px' }
+            : editor_width
+        }
+      >
         <div className='header'>
           <h2>Editor</h2>
           <div className='editor_settings'>
@@ -210,7 +248,10 @@ function App() {
         </div>
       </div>
       {feedback && (
-        <div className='container'>
+        <div
+          className='container'
+          style={{ width: editorRef && editorRef.current?.offsetWidth }}
+        >
           <div className='response_container'>
             <h2>Nota {feedback.nota}</h2>
             <div>
