@@ -125,6 +125,11 @@ main {
     text-wrap: nowrap;
     overflow: hidden;
 
+    @media (width < 768px) {
+      min-width: 300px;
+      max-width: 100%;
+    }
+
     &:hover,
     &:focus {
       outline: 0;
