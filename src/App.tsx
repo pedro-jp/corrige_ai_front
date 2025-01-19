@@ -148,9 +148,9 @@ function App() {
         <div>
           <p>
             Transforme suas redações manuscritas em digitais com facilidade e
-            eficiência.
+            eficiência. Tenha sua redação corrigida com um simples toque de um
+            botão.
           </p>
-          <p>Tenha sua redação corrigida com um simples toque de um botão.</p>
         </div>
         <ul>
           <li>Evite letras manuscritas para maior precisão na digitalização</li>
