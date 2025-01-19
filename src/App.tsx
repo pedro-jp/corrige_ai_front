@@ -4,7 +4,7 @@ import axios from 'axios';
 import { TiDocumentText } from 'react-icons/ti';
 import LoadingIcons from 'react-loading-icons';
 import { GiArtificialIntelligence } from 'react-icons/gi';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaQuestion } from 'react-icons/fa';
 
 type Line = {
   LineText: string;
@@ -184,6 +184,9 @@ function App() {
           </li>
           <li>Para melhor edição evite usar em celulares</li>
         </ul>
+        <div className='question'>
+          <FaQuestion />
+        </div>
       </div>
 
       <div

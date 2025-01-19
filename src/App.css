@@ -19,6 +19,7 @@ main {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  position: relative;
 
   h1 {
     color: transparent;
@@ -40,6 +41,37 @@ main {
     li {
       color: #4b5563;
       font-weight: 500;
+    }
+  }
+
+  .question {
+    text-align: right;
+    color: rgba(179, 33, 33, 0.699);
+    cursor: pointer;
+    position: relative;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+
+    width: max-content;
+    &::before {
+      display: none;
+      content: 'Nossos serviços de digitalização e revisão de texto podem apresentar instabilidades em alguns momentos. Se o problema persistir, por favor, aguarde alguns minutos para obter a resposta. Caso o problema persista, por favor, entre em contato conosco. Utilizamos serviços de terceiros para fornecer essa solução, e eles podem apresentar instabilidade em alguns momentos.';
+      position: absolute;
+      right: 0;
+      top: 0;
+      text-align: justify;
+      color: black;
+      width: 300px;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      z-index: 1;
+    }
+
+    &:hover::before {
+      display: block;
     }
   }
 }
