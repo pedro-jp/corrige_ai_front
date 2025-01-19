@@ -4,6 +4,7 @@ import axios from 'axios';
 import { TiDocumentText } from 'react-icons/ti';
 import LoadingIcons from 'react-loading-icons';
 import { GiArtificialIntelligence } from 'react-icons/gi';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 type Line = {
   LineText: string;
@@ -151,6 +152,7 @@ function App() {
   }, []);
 
   const btn = isLoading ? 'not-allowed' : 'pointer';
+  const year = new Date().getFullYear();
 
   const editor_width = {
     width: '100%',
@@ -304,6 +306,21 @@ function App() {
           </div>
         </div>
       )}
+      <footer>
+        <div className='container'>
+          <div>
+            <p>©{year} Corrige-Ia | Digitalizador e revisor de redação</p>
+            <p>
+              <a target='_blank' href='https://www.linkedin.com/in/pedro-jp/'>
+                <FaLinkedin size={45} color='#0e76a8' />
+              </a>
+              <a target='_blank' href='https://github.com/pedro-jp'>
+                <FaGithub size={45} color='black' />
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

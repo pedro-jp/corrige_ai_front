@@ -186,3 +186,35 @@ main {
     }
   }
 }
+
+footer {
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 300px;
+    display: grid;
+    place-content: center;
+    box-shadow: none;
+    background: none;
+    border: none;
+
+    div {
+      p {
+        display: flex;
+        margin-bottom: 1rem;
+        gap: 1rem;
+        justify-content: center;
+        font-family: 'Courier New', Courier, monospace;
+
+        a:hover {
+          scale: 1.05;
+        }
+
+        a:active {
+          transition: 0.2s;
+          scale: 0.95;
+        }
+      }
+    }
+  }
+}
