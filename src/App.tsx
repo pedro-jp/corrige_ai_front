@@ -207,11 +207,25 @@ function App() {
           <h2>Editor</h2>
           <div className='editor_settings'>
             <div className='font_size'>
-              <button onClick={() => setFontSize(fontSize - 1)}>
+              <button
+                onClick={() =>
+                  setFontSize(() => {
+                    if (fontSize <= 8) return fontSize;
+                    return fontSize - 1;
+                  })
+                }
+              >
                 <strong>-</strong>
               </button>
               {fontSize}
-              <button onClick={() => setFontSize(fontSize + 1)}>
+              <button
+                onClick={() =>
+                  setFontSize(() => {
+                    if (fontSize >= 30) return fontSize;
+                    return fontSize + 1;
+                  })
+                }
+              >
                 <strong>+</strong>
               </button>
             </div>
