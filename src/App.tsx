@@ -146,9 +146,10 @@ function App() {
       <div className='main_header'>
         <h1>Digitalize e tenha sua redação corrigida</h1>
         <p>
-          Transforme seus textos manuscritos em digitais com facilidade e
+          Transforme suas redações manuscritas em digitais com facilidade e
           eficiência.
         </p>
+        <p>Tenha sua redação corrigida com um simples toque de um botão.</p>
         <ul>
           <li>Evite letras manuscritas para maior precisão na digitalização</li>
           <li>
